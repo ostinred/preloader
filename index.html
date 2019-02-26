@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.is-fixed {
+			overflow: hidden;
+		}
+		#preloading {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 10000;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			background-color: #fff;
+		}
+
+		#preloading.is-hidden {
+			opacity: 0;
+			z-index: -111111;
+
+			transition: .1s .2s;
+		}
+
+		#preloading.is-hidden img{
+			transform: scale(0);
+			transition: .25s;
+		}
+	</style>
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function() {
+		  function hidePreloader(){
+		    var el = document.getElementById('preloading');
+		    el.classList.add('is-hidden');
+		    var body = document.querySelector('body');
+		    body.classList.remove('is-fixed');
+		  }
+		  setTimeout(hidePreloader, 1000);
+		});
+	</script>
+</head>
+<body class="is-fixed">
+	<div id="preloading">
+	  <img src="" />
+	</div>
+</body>
+</html>
